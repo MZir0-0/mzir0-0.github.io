@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="module" src="https://sdk.niftykit.com/widgets/widgets.esm.js"></script>
     <title>Scrollable Background</title>
   </head>
   <body>
@@ -13,22 +13,45 @@
       <a href="#"><img class="icon" src="twitter.png" alt="Twitter"></a>
       <a href="#"><img class="icon" src="opensea.png" alt="OpenSea"></a>
     </div>
-    <section class="first-section">
-      <img class="mint-button" src="MINT chalkduster.png" alt="Mint button">
-      <!-- Import NiftyKit Widgets library -->
-      <script type="module" src="https://sdk.niftykit.com/widgets/widgets.esm.js"></script>
-      <nk-diamond collection-id="cllbgtsda0001l50fh4nn8fgt">
-        <nk-is-not-connected>
-          <nk-connect-wallet-button id="connectWalletButton">
-            Connect Wallet
-          </nk-connect-wallet-button>
-        </nk-is-not-connected>
-        <nk-is-connected>
-          <nk-drop-mint-button id="freeMintButton" success-title="Success!" success-message="You did it!">
-            FREE MINT
+    <div class="first-section">
+      <nk-diamond collection-id="clg9wuwjd00019e384ck7vauc" is-dev="true">
+        <nk-connect-wallet-button  class="mint-button">
+          <img class="mint-text" src="MINT chalkduster.png" alt="Mint button">
+          <!-- Import NiftyKit Widgets library -->
+        </nk-connect-wallet-button>
+        <nk-is-connected  class="mint-button">
+          <nk-drop-mint-button success-title="Success!" success-message="You did it!">
+            Mint NFT
           </nk-drop-mint-button>
         </nk-is-connected>
-      </nk-diamond>      
-    </section>
+      </nk-diamond>
+    </div>
   </body>
 </html>
+
+<style>
+  nk-connect-wallet-button::part(wallet-btn-container) {  
+      margin: 20px auto;
+      height: 100px;
+      display: inline-block;
+  }
+  nk-connect-wallet-button::part(wallet-btn) {  
+      width: 250px;
+      height: 100px;
+      background: none;
+      box-shadow: none;
+  }
+  nk-drop-mint-button::part(mint-btn) {
+      height: 80px;
+      background: none;
+      border-radius: 40px;
+  }
+  nk-drop-mint-button::part(mint-text) {
+      font-size: 36px;
+  }
+  nk-drop-mint-button::part(mint-dropdown-icon) {
+      width: 32px;
+      height: 32px;
+      fill: black;
+  }
+</style>
