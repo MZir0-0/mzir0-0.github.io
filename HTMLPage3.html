@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ты точно уверен?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: red;
+            text-align: center;
+            padding: 50px;
+            background-image: url('https://media.tenor.com/RYzpH-j8b30AAAAi/peach-and.gif'); /* Фон с котиком с рожками */ background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+            background-color: #fff;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            button:hover {
+                background-color: #eee;
+            }
+    </style>
+</head>
+<body>
+    <h1>Ты точно уверен?</h1>
+
+    <button onclick="closeBrowser()">Да</button>
+    <button onclick="goBack()">Не знаю</button>
+
+    <script>
+        function closeBrowser() {
+            // Попытка закрыть текущее окно
+            window.open('', '_self').close(); // Попробовать закрыть вкладку
+
+            // Альтернатива: если браузер не позволит закрыть, просто открываем пустую страницу
+            if (!window.closed) {
+                window.location.href = "about:blank";
+            }
+        }
+
+        function goBack() {
+            // Вернуться на главную страницу
+            window.location.href = 'HTMLPage1.html';
+        }
+    </script>
+</body>
+</html>

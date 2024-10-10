@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Когда ты свободен?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            text-align: center;
+            padding: 50px;
+            background-image: url('https://media1.tenor.com/m/cxS9KTSSN6AAAAAC/meowwah.gif'); /* Замените на URL гифки */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            color: #ff4081;
+        }
+
+        input[type="datetime-local"], button {
+            padding: 10px;
+            margin: 20px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #ff4081;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #e91e63;
+            }
+    </style>
+</head>
+<body>
+    <h1>Когда ты свободен?</h1>
+    <form id="dateForm">
+        <input type="datetime-local" id="datetime" required>
+        <button type="submit">Подтвердить</button>
+    </form>
+
+    <div id="confirmation" style="display:none;">
+        <h2>Не забудь, что мы встретимся</h2>
+        <p id="selected-date"></p>
+    </div>
+
+    <script>
+        document.getElementById('dateForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var date = document.getElementById('datetime').value;
+            document.getElementById('selected-date').innerText = date;
+            document.getElementById('dateForm').style.display = 'none';
+            document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
